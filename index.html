@@ -69,10 +69,10 @@
     <!-- Blobs (via style.css pseudo-elements) -->
 
     <div class="w-full px-6 md:px-12 relative z-10">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-10">
 
         <!-- Left copy -->
-        <div class="lg:w-[30%] flex flex-col py-8 relative z-10">
+        <div class="lg:w-[50%] flex flex-col py-8 relative z-10">
           <span class="inline-block self-start bg-orange-500/15 border border-orange-500/35 text-hero-accent text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full mb-5">
             New Season 2025
           </span>
@@ -90,16 +90,24 @@
               View Lookbook
             </a>
           </div>
+           <!-- Floating mini-card -->
+    <div class="hero-float-card flex w-fit items-center gap-3 bg-white/[0.08] border border-orange-500/20 rounded-2xl px-4 py-2.5 backdrop-blur-md z-20 animate-floatUp my-8">
+      <img src="./img/t1.png" alt="t1" class="w-12 h-12 object-contain rounded-lg">
+      <div>
+        <p class="text-hero-text text-sm font-semibold leading-none mb-1">Slim Fit Tee</p>
+        <p class="text-hero-accent text-sm font-bold leading-none">$24.99</p>
+      </div>
+    </div>
         </div>
 
         <!-- Center model -->
-        <div class="hidden lg:flex lg:w-[35%] justify-center items-end self-end">
+        <!-- <div class="hidden lg:flex lg:max-w-[32%] justify-center items-end self-end">
           <img src="./img/model.png" alt="model"
-               class="max-h-[80vh] object-contain drop-shadow-[0_20px_50px_rgba(249,115,22,0.25)] relative z-10">
-        </div>
+               class="lg:max-w-[65%] object-contain drop-shadow-[0_20px_50px_rgba(249,115,22,0.25)] relative z-10">
+        </div> -->
 
         <!-- Right featured card -->
-        <div class="lg:w-[28%] w-full max-w-xs mx-auto lg:mx-0">
+        <div class="lg:w-[50%] w-full max-w-xs mx-auto lg:mx-0">
           <div class="bg-white/[0.06] border border-orange-500/20 rounded-3xl p-5 backdrop-blur-md relative z-10 transition-transform hover:-translate-y-1.5 duration-300">
             <span class="inline-block bg-hero-accent text-white text-[0.7rem] font-bold tracking-widest uppercase px-3 py-1 rounded-lg mb-3">Featured</span>
             <img src="./img/t3.png" alt="featured tee" class="w-full rounded-2xl object-contain max-h-[200px]">
@@ -116,14 +124,7 @@
       </div>
     </div>
 
-    <!-- Floating mini-card -->
-    <div class="hero-float-card hidden xl:flex absolute bottom-14 left-[5%] items-center gap-3 bg-white/[0.08] border border-orange-500/20 rounded-2xl px-4 py-2.5 backdrop-blur-md z-20 animate-floatUp">
-      <img src="./img/t1.png" alt="t1" class="w-12 h-12 object-contain rounded-lg">
-      <div>
-        <p class="text-hero-text text-sm font-semibold leading-none mb-1">Slim Fit Tee</p>
-        <p class="text-hero-accent text-sm font-bold leading-none">$24.99</p>
-      </div>
-    </div>
+   
   </section>
 
   <!-- ───────────── SHOP SECTION ───────────── -->
@@ -148,7 +149,7 @@
         <!-- Products grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 p-6 products">
 
-          <!-- Product card template (×6) -->
+          <!--||||||| RENDER PRODUCTS  HERE |||||||-->
           <!-- <div class="item flex">
             <div class="item-container w-full bg-prod-bg2 border border-indigo-500/15 rounded-2xl overflow-hidden relative transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(99,102,241,0.2)]">
               <div class="item-img flex items-center justify-center p-6 h-[200px] bg-gradient-to-br from-prod-bg2 to-prod-bg">
@@ -176,9 +177,10 @@
           <i class="bi bi-bag-check-fill"></i> Your Cart
         </div>
 
-        <!-- Cart items -->
+         
         <div class="cart-items flex-1 overflow-y-auto overflow-x-hidden p-2">
-          <div class="cart-item flex items-center gap-1.5 bg-white/[0.05] border border-green-500/10 rounded-2xl px-2 py-2.5 mb-2 hover:bg-green-500/[0.08] transition-colors">
+          <!--||||||| RENDER CART ITEMS HERE |||||||-->
+          <!-- <div class="cart-item flex items-center gap-1.5 bg-white/[0.05] border border-green-500/10 rounded-2xl px-2 py-2.5 mb-2 hover:bg-green-500/[0.08] transition-colors">
             <div class="item-info flex-[1.4] flex items-center gap-2 bg-white/[0.06] rounded-xl p-1.5 cursor-pointer hover:bg-red-500/25 transition-colors">
               <img src="./img/t1.png" alt="T-shirt 1" class="w-12 h-12 object-contain rounded-lg">
               <span class="text-cart-text text-xs font-medium">T-shirt 1</span>
@@ -192,9 +194,12 @@
               <button class="qty-btn plus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">+</button>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <!-- Cart footer -->
+        
+
+      </div>
+      <!-- Cart footer -->
         <div class="shrink-0 border-t border-green-500/15">
           <div class="flex items-center justify-between px-4 py-3.5 bg-white/[0.04] text-cart-muted text-sm">
             <span>Subtotal (0 items)</span>
@@ -204,8 +209,6 @@
             Proceed to Checkout <i class="bi bi-arrow-right"></i>
           </div>
         </div>
-
-      </div>
     </div>
   </section>
 

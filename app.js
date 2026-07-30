@@ -1,5 +1,6 @@
 /* app.js */
 let productsEl = document.querySelector(".products");
+let cartItemsEl = document.querySelector(".cart-items");
 
 // render products function
 
@@ -36,8 +37,43 @@ function addToCart(id) {
   } else {
     let item = products.find((product) => product.id === id);
 
-    cart.push(item);
+    cart.push({
+      ...item,
+      numberOfUnits: 1,
+    });
 
-    console.log(cart);
+    updatecart();
   }
 }
+
+// update cart
+
+function updatecart() {
+  renderCartItems();
+  // renderSubtotals();
+}
+
+function renderCartItems() {
+  cartItemsEl.innerHTML = "";
+  cart.forEach((item) => {
+    cartItemsEl.innerHTML += `<div class="cart-item flex items-center gap-1.5 bg-white/[0.05] border border-green-500/10 rounded-2xl px-2 py-2.5 mb-2 hover:bg-green-500/[0.08] transition-colors">
+            <div class="item-info flex-[1.4] flex items-center gap-2 bg-white/[0.06] rounded-xl p-1.5 cursor-pointer hover:bg-red-500/25 transition-colors">
+              <img src="${item.imgSrc}" alt="T-shirt 1" class="w-12 h-12 object-contain rounded-lg">
+              <span class="text-cart-text text-xs font-medium">${item.name}</span>
+            </div>
+            <div class="flex-1 text-cart-accent2 font-bold text-sm text-center">
+              <small class="text-cart-muted text-[0.65rem]">$</small>${item.price}
+            </div>
+            <div class="flex-1 flex items-center justify-center gap-1.5">
+              <button onclick="chnageNumberOfUnits('minus' , ${item.id})" class="qty-btn minus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">−</button>
+              <span class="number text-cart-text font-semibold text-base min-w-[18px] text-center">${item.numberOfUnits}</span>
+              <button onclick="chnageNumberOfUnits('plus' , ${item.id})" class="qty-btn plus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">+</button>
+            </div>
+          </div>
+        </div>
+        `;
+  });
+}
+
+// change the number of the unit for an item
+chnageNumberOfUnits(action, id)
