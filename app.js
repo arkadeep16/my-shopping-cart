@@ -65,9 +65,9 @@ function renderCartItems() {
               <small class="text-cart-muted text-[0.65rem]">$</small>${item.price}
             </div>
             <div class="flex-1 flex items-center justify-center gap-1.5">
-              <button onclick="chnageNumberOfUnits('minus' , ${item.id})" class="qty-btn minus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">−</button>
+              <button onclick="changeNumberOfUnits('minus' , ${item.id})" class="qty-btn minus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">−</button>
               <span class="number text-cart-text font-semibold text-base min-w-[18px] text-center">${item.numberOfUnits}</span>
-              <button onclick="chnageNumberOfUnits('plus' , ${item.id})" class="qty-btn plus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">+</button>
+              <button onclick="changeNumberOfUnits('plus' , ${item.id})" class="qty-btn plus w-6 h-6 rounded-full bg-white/10 border border-green-500/20 text-cart-text font-bold flex items-center justify-center hover:bg-cart-accent hover:text-cart-bg hover:border-cart-accent transition-all select-none">+</button>
             </div>
           </div>
         </div>
@@ -76,4 +76,20 @@ function renderCartItems() {
 }
 
 // change the number of the unit for an item
-chnageNumberOfUnits(action, id)
+function changeNumberOfUnits(action, id){
+  cart = cart.map((item)=>{
+
+    let numberOfUnits = item.numberOfUnits;
+
+      if (item.id === id) {
+        if (action === "minus" && numberOfUnits > 1 ) {
+          numberOfUnits--
+        }else if(action === "plus" && numberOfUnits < item.instock  ){
+          numberOfUnits++
+        }
+      }
+    return {...item, numberOfUnits: numberOfUnits};
+  })
+
+  updatecart();
+}
